@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
 import ColorBox from "./ColorBox"
-import './Pallete.css'
+import './Palette.css'
 import Navbar from './Navbar'
 
-class Pallete extends Component {
+class Palette extends Component {
 
     state = {
         level: 500,
@@ -39,4 +39,4 @@ class Pallete extends Component {
     }
 }
 
-export default Pallete
+export default Palette
