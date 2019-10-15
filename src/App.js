@@ -24,14 +24,13 @@ function App() {
                 exact
                 path="/palette/:paletteId/:colorId"
                 render={routeProps => (
-                    <SingleColorPalette />
+                    <SingleColorPalette
+                        colorId={routeProps.match.params.colorId}
+                        palette={generatePalette(findPalette(routeProps.match.params.paletteId))} />
                 )}
             />
         </Switch>
-        // <div className="App">
-        //     <Pallete palette={generatePalette(seedColors[4])}></Pallete>
-        // </div>
-    );
+    )
 }
 
 export default App;
