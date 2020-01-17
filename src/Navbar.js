@@ -1,13 +1,14 @@
 import React, { Component } from 'react'
-import Slider, { Range } from 'rc-slider'
+import Slider from 'rc-slider'
 import Select from '@material-ui/core/Select'
 import MenuItem from '@material-ui/core/MenuItem'
 import Snackbar from '@material-ui/core/Snackbar'
 import CloseIcon from '@material-ui/icons/Close'
 import { Link } from 'react-router-dom'
+import styles from "./styles/NavbarStyles"
 import 'rc-slider/assets/index.css'
 import { IconButton } from '@material-ui/core'
-import styles from "./styles/NavbarStyles"
+
 import { withStyles } from '@material-ui/styles'
 
 class Navbar extends Component {

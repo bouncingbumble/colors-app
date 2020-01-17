@@ -29,8 +29,7 @@ export default {
         "& .rc-slider-rail": {
             height: "8px"
         },
-        "& .rc-slider-track .rc-slider-handle:active .rc-slider-handle:focus .rc-slider-handle:hover": {
-            backgroundColor: "transparent",
+        "& .rc-slider-handle, .rc-slider-handle:active, .rc-slider-handle:focus, .rc-slider-handle:hover": {
             backgroundColor: "green",
             outline: "none",
             border: "2px solid green",
