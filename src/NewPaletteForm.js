@@ -81,15 +81,25 @@ const useStyles = makeStyles(theme => ({
 export default function NewPaletteForm() {
     const classes = useStyles();
     const theme = useTheme();
-    const [open, setOpen] = React.useState(false);
+    const [open, setOpen] = React.useState(true)
+    const [currentColor, setCurrentColor] = React.useState("teal")
+    const [colors, setCurrentColors] = React.useState(["purple", "blue"])
 
     const handleDrawerOpen = () => {
-        setOpen(true);
-    };
+        setOpen(true)
+    }
 
     const handleDrawerClose = () => {
-        setOpen(false);
-    };
+        setOpen(false)
+    }
+
+    const updateCurrentColor = colorObj => {
+        setCurrentColor(colorObj.hex)
+    }
+
+    const addNewColor = () => {
+        setCurrentColors([...colors, currentColor])
+    }
 
     return (
         <div className={classes.root}>
@@ -137,8 +147,16 @@ export default function NewPaletteForm() {
                     <Button variant="contained" color="secondary">Clear palette</Button>
                     <Button variant="contained" color="primary">Random Color</Button>
                 </div>
-                <ChromePicker />
-                <Button variant="contained" color="primary">Add Color</Button>
+                <ChromePicker color={currentColor} onChangeComplete={updateCurrentColor} />
+                <Button
+                    variant="contained"
+                    style={{
+                        backgroundColor: currentColor
+                    }}
+                    onClick={addNewColor}
+                >
+                    Add Color
+                </Button>
             </Drawer>
             <main
                 className={clsx(classes.content, {
@@ -146,7 +164,11 @@ export default function NewPaletteForm() {
                 })}
             >
                 <div className={classes.drawerHeader} />
-
+                <ul>
+                    {colors.map(color => (
+                        <li style={{ backgroundColor: color }}>{color}</li>
+                    ))}
+                </ul>
             </main>
         </div>
     );
