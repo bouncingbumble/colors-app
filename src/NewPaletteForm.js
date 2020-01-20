@@ -17,8 +17,10 @@ import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import InboxIcon from '@material-ui/icons/MoveToInbox';
 import MailIcon from '@material-ui/icons/Mail';
+import { ChromePicker } from 'react-color'
+import Button from '@material-ui/core/Button'
 
-const drawerWidth = 240;
+const drawerWidth = 400;
 
 const useStyles = makeStyles(theme => ({
     root: {
@@ -124,10 +126,19 @@ export default function NewPaletteForm() {
             >
                 <div className={classes.drawerHeader}>
                     <IconButton onClick={handleDrawerClose}>
-                        {theme.direction === 'ltr' ? <ChevronLeftIcon /> : <ChevronRightIcon />}
+                        <ChevronLeftIcon />
                     </IconButton>
                 </div>
                 <Divider />
+                <Typography variant="h4">
+                    Design Your Palette
+                </Typography>
+                <div>
+                    <Button variant="contained" color="secondary">Clear palette</Button>
+                    <Button variant="contained" color="primary">Random Color</Button>
+                </div>
+                <ChromePicker />
+                <Button variant="contained" color="primary">Add Color</Button>
             </Drawer>
             <main
                 className={clsx(classes.content, {
