@@ -9,7 +9,6 @@ import { withStyles } from '@material-ui/core/styles';
 
 class PaletteMetaForm extends Component {
     state = {
-        open: true,
         newPaletteName: ''
     }
 
@@ -20,21 +19,18 @@ class PaletteMetaForm extends Component {
             ))))
     }
 
-    handleClose = () => {
-        this.setState({ open: false })
-    }
-
     handleChange = e => {
         this.setState({ [e.target.name]: e.target.value })
     }
 
     render() {
         const { newPaletteName } = this.state
+        const { hideForm, handleSubmit } = this.props
 
         return (
-            <Dialog open={this.state.open} onClose={this.handleClose} aria-labelledby="form-dialog-title">
+            <Dialog open onClose={hideForm} aria-labelledby="form-dialog-title">
                 <DialogTitle id="form-dialog-title">Choose a Palette Name</DialogTitle>
-                <ValidatorForm onSubmit={() => this.props.handleSubmit(newPaletteName)}>
+                <ValidatorForm onSubmit={() => handleSubmit(newPaletteName)}>
                     <DialogContent>
                         <TextValidator
                             label='Palette Name'
@@ -46,11 +42,9 @@ class PaletteMetaForm extends Component {
                             validators={["required", "isPaletteNameUnique"]}
                             errorMessages={["Enter Palette Name", "Name already used"]}
                         />
-
-
                     </DialogContent>
                     <DialogActions>
-                        <Button onClick={this.handleClose} color="primary">
+                        <Button onClick={hideForm} color="primary">
                             Cancel
                         </Button>
                         <Button
