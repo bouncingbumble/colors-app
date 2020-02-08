@@ -25,7 +25,8 @@ const styles = theme => ({
         }),
         flexDirection: "row",
         justifyContent: "space-between",
-        height: '60px'
+        height: '60px',
+        alignItems: 'center'
     },
     appBarShift: {
         width: `calc(100% - ${drawerWidth}px)`,
@@ -38,12 +39,27 @@ const styles = theme => ({
     menuButton: {
         marginRight: theme.spacing(2),
     },
+    navBtns: {
+        marginRight: '1rem'
+    },
+    button: {
+        margin: "0 0.5rem",
+        "& a": {
+            textDecoration: 'none',
+            color: 'white'
+        }
+    }
 })
 
 class PaletteFormNav extends Component {
 
     state = {
-        newPaletteName: ""
+        newPaletteName: "",
+        isFormOpen: false
+    }
+
+    showForm = () => {
+        this.setState({ isFormOpen: true })
     }
 
     handleChange = e => {
@@ -79,16 +95,23 @@ class PaletteFormNav extends Component {
                         </Typography>
                     </Toolbar>
                     <div className={classes.navBtns}>
-                        <Link to='/'>
-                            <Button
-                                color="secondary"
-                                variant="contained"
-                                type="submit"
-                            >Go Back</Button>
+                        <Button
+                            color="secondary"
+                            variant="contained"
+                            type="submit"
+                            className={classes.button}
+                        >
+                            <Link to='/'>
+                                Go Back
                         </Link>
-                        <PaletteMetaForm palettes={palettes} handleSubmit={this.props.handleSubmit}></PaletteMetaForm>
+                        </Button>
+
+                        <Button className={classes.button} variant="contained" color="primary" onClick={this.showForm}>
+                            Open form dialog
+                        </Button>
                     </div>
                 </AppBar>
+                {this.state.isFormOpen && <PaletteMetaForm palettes={palettes} handleSubmit={this.props.handleSubmit}></PaletteMetaForm>}
             </div>
         )
     }
