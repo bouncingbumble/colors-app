@@ -111,11 +111,18 @@ class PaletteFormNav extends Component {
                         </Button>
 
                         <Button className={classes.button} variant="contained" color="primary" onClick={this.showForm}>
-                            Open form dialog
+                            Save
                         </Button>
                     </div>
                 </AppBar>
-                {this.state.isFormOpen && <PaletteMetaForm palettes={palettes} handleSubmit={this.props.handleSubmit} hideForm={this.hideForm}></PaletteMetaForm>}
+                {this.state.isFormOpen &&
+                    <PaletteMetaForm
+                        palettes={palettes}
+                        handleSubmit={this.props.handleSubmit}
+                        hideForm={this.hideForm}
+                    >
+                    </PaletteMetaForm>
+                }
             </div>
         )
     }

@@ -109,7 +109,7 @@ class NewPaletteForm extends Component {
         }
 
         this.props.savePalette(newPalette)
-        this.props.history.push("/")
+        // this.props.history.push("/")
     }
 
     deleteColor = name => {
@@ -143,7 +143,12 @@ class NewPaletteForm extends Component {
 
         return (
             <div className={classes.root}>
-                <PaletteFormNav open={open} palettes={palettes} handleSubmit={this.handleSubmit} handleDrawerOpen={this.handleDrawerOpen} />
+                <PaletteFormNav
+                    open={open}
+                    palettes={palettes}
+                    handleSubmit={this.handleSubmit}
+                    handleDrawerOpen={this.handleDrawerOpen}
+                />
                 <Drawer
                     className={classes.drawer}
                     variant="persistent"
