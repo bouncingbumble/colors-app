@@ -1,4 +1,5 @@
 import { DRAWER_WIDTH } from "./constants";
+import sizes from "./sizes";
 
 export default theme => ({
     root: {
@@ -29,13 +30,20 @@ export default theme => ({
         marginRight: theme.spacing(2),
     },
     navBtns: {
-        marginRight: '1rem'
+        marginRight: '1rem',
+        [sizes.down("xs")]: {
+            marginRight: '0.5rem'
+        },
     },
     button: {
         margin: "0 0.5rem",
         "& a": {
             textDecoration: 'none',
             color: 'white'
-        }
+        },
+        [sizes.down("xs")]: {
+            margin: "0 0.2rem",
+            padding: "0.3rem"
+        },
     }
 })
