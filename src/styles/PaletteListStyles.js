@@ -1,4 +1,5 @@
 import sizes from "./sizes";
+import bg from './bg.svg'
 
 export default {
     root: {
@@ -6,7 +7,11 @@ export default {
         height: '100vh',
         display: 'flex',
         alignItems: 'flex-start',
-        justifyContent: 'center'
+        justifyContent: 'center',
+        backgroundColor: '#1a77b8',
+        backgroundImage: `url(${bg})`,
+        /* background by SVGBackgrounds.com */
+        overflow: "scroll"
     },
     container: {
         width: '50%',
@@ -20,6 +25,9 @@ export default {
         [sizes.down("xs")]: {
             width: "70%",
         },
+    },
+    heading: {
+        fontSize: "2rem"
     },
     nav: {
         display: 'flex',
