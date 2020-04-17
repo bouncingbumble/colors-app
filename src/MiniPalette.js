@@ -1,9 +1,9 @@
-import React, { Component } from 'react'
+import React, { PureComponent } from 'react'
 import { withStyles } from "@material-ui/styles"
 import styles from "./styles/MiniPaletteStyles"
 import DeleteIcon from '@material-ui/icons/Delete';
 
-class MiniPalette extends Component {
+class MiniPalette extends PureComponent {
 
     deletePalette = e => {
         e.stopPropagation()
@@ -22,7 +22,7 @@ class MiniPalette extends Component {
         ))
 
         return (
-            <div className={classes.root} onClick={handleClick}>
+            <div className={classes.root} onClick={() => handleClick(this.props.id)}>
                 <DeleteIcon
                     className={classes.deleteIcon}
                     style={{ transition: "all 0.3s ease-in-out" }}
