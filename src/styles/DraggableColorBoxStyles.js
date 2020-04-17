@@ -1,4 +1,5 @@
 import sizes from "./sizes";
+import chroma from 'chroma-js'
 
 export default {
     root: {
@@ -8,7 +9,8 @@ export default {
         display: "inline-block",
         position: "relative",
         cursor: "pointer",
-        marginBottom: "-3.5px",
+
+        marginBottom: "-4.5px",
         "&:hover svg": {
             color: "white",
             transform: "scale(1.5)"
@@ -38,7 +40,9 @@ export default {
         fontSize: "12px",
         display: "flex",
         justifyContent: "space-between",
-        alignItems: "center"
+        alignItems: "center",
+        color: props =>
+            chroma(props.color).luminance() <= 0.085 ? "rgba(255, 255, 255, 0.8)" : "rgba(0, 0, 0, 0.6)"
     },
     deleteIcon: {
         transition: "all 0.3s ease-in-out"

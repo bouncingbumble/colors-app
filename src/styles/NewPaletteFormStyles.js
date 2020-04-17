@@ -30,14 +30,14 @@ export default theme => ({
             duration: theme.transitions.duration.leavingScreen,
         }),
         marginLeft: -DRAWER_WIDTH,
-
+        lineHeight: 1.3
     },
     contentShift: {
         transition: theme.transitions.create('margin', {
             easing: theme.transitions.easing.easeOut,
             duration: theme.transitions.duration.enteringScreen,
         }),
-        marginLeft: 0,
+        marginLeft: 0
     },
     container: {
         width: '90%',

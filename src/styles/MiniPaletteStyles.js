@@ -9,14 +9,15 @@ export default {
         cursor: "pointer",
         "&:hover svg": {
             opacity: 1
-        }
+        },
+        lineHeight: 1.1
     },
     colors: {
         backgroundColor: "#dae1e4",
         height: "150px",
         width: "100%",
         borderRadius: '5px',
-        overflow: "hidden"
+        overflow: "hidden",
     },
     title: {
         display: "flex",
@@ -44,7 +45,7 @@ export default {
         cursor: "pointer"
     },
     delete: {
-        borderRadius: 3
+
     },
     deleteIcon: {
         color: "white",
