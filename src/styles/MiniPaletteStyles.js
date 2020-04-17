@@ -44,7 +44,7 @@ export default {
         cursor: "pointer"
     },
     delete: {
-
+        borderRadius: 3
     },
     deleteIcon: {
         color: "white",
